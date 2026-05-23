@@ -1,0 +1,19 @@
+# Игнорируем мусор Unity (везде, в любых подпапках)
+**/Library/
+**/Temp/
+**/Logs/
+**/obj/
+**/UserSettings/
+
+# Игнорируем файлы IDE
+.vs/
+.csproj
+.sln
+
+# Игнорируем системные файлы
+.DS_Store
+Thumbs.db
+
+# Игнорируем сборки и билды
+**/Builds/
+**/Build/
