@@ -6,7 +6,6 @@ public class Ball : MonoBehaviour
 {
     //компоненты
     private Rigidbody2D rb;
-    [SerializeField] private GameManager gameManager;
     
     //настройка движени€ 
     public float maxInitialAngle = 0.67f; //38 примерно
@@ -27,6 +26,7 @@ public class Ball : MonoBehaviour
     {
         //первый импульс м€ча
         InitialPush();
+        GameManager.Instance.onReset += ResetBall;
     }
 
     private void InitialPush()
@@ -52,8 +52,12 @@ public class Ball : MonoBehaviour
 
     }
 
-    
     private void ResetBall()
+    {
+        ResetBallPosition();
+        InitialPush();
+    }
+    private void ResetBallPosition()
     {
         //генераци€ позиции по y
         float posY = Random.Range(-maxSpawnY, maxSpawnY);
@@ -71,11 +75,7 @@ public class Ball : MonoBehaviour
         if (scoreZone)
         {
             //гол забит
-            gameManager.OnScoreZoneReached(scoreZone.id);
-            //перезапуск
-            ResetBall();
-            //новый импульс м€ча
-            InitialPush();
+            GameManager.Instance.OnScoreZoneReached(scoreZone.id);
 
         }
 

@@ -11,6 +11,18 @@ public class Padlle : MonoBehaviour
     public int id;
     public float moveSpeed = 5f;
 
+    private Vector2 startPosition;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+        GameManager.Instance.onReset += ResetPosition;
+    }
+
+    private void ResetPosition()
+    {
+        transform.position = startPosition;
+    }
 
     private void Awake()
     {
