@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2777665362727666479}
   - component: {fileID: 1121027820397240417}
   m_Layer: 0
-  m_Name: Bellow Wall
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

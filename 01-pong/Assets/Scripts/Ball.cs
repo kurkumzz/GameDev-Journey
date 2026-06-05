@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     //настройка движения 
     public float maxInitialAngle = 0.67f; //38 примерно
     public float moveSpeed = 5f;
+    private float speedMultiplier = 1.1f;
 
     //настройка респавна
     private float spawnX = 0;
@@ -79,6 +80,16 @@ public class Ball : MonoBehaviour
         }
 
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Padlle padlle = collision.collider.GetComponent<Padlle>();
+
+        if(padlle)
+        {
+            rb.velocity *= speedMultiplier;
+        }
     }
 
 }
